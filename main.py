@@ -122,6 +122,7 @@ async def place_order(order: OrderRequest):
     response = requests.post(url, headers=headers, data=json.dumps(order_payload))
 
     if response.status_code != 200:
+        
         raise HTTPException(status_code=response.status_code, detail=response.text)
     
     return response.json()
